@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour {
 
-    public float mass = 10000f;
+    public float g;
     private Rigidbody2D rb;
 
     private void Start() {
@@ -17,7 +17,9 @@ public class Gravity : MonoBehaviour {
         }
         Vector3 distance = (gameObject.transform.transform.position - other.gameObject.transform.position);
         Rigidbody2D otherBody = other.attachedRigidbody;
-        float magnitude = mass / distance.sqrMagnitude;
-        otherBody.AddForce(distance.normalized * magnitude);
+        float magnitude = g * rb.mass * otherBody.mass / distance.sqrMagnitude;
+        Vector3 force = distance.normalized * magnitude;
+        rb.AddForce(-1 * force);
+        otherBody.AddForce(force);
     }
 }

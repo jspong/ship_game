@@ -16,7 +16,15 @@ public class AsteroidBehavior : MonoBehaviour {
         rb.velocity = new Vector2(Random.value, Random.value).normalized * Random.Range(minSpeed, maxSpeed);
         rb.angularVelocity = Random.Range(minSpeed, maxSpeed);
 
-        transform.localScale = Vector3.one * Random.Range(minSize, maxSize);
+        float scaleX = Random.value;
+        float scaleY = Random.value;
+        rb.mass *= scaleX * scaleY;
+
+        transform.localScale = new Vector3(ScaleRange(scaleX, minSize, maxSize), ScaleRange(scaleY, minSize, maxSize), 1f);
+    }
+
+    float ScaleRange(float scale, float min, float max) {
+        return scale * (max - min) + min;
     }
 
 }
