@@ -395,8 +395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   value: 0
-  health: 500
-  shield: 300
+  health: 5000000
+  shield: 3000000
   healthDisplay: {fileID: 1903636247}
   shieldDisplay: {fileID: 1414206610}
   scoreDisplay: {fileID: 558529788}
@@ -422,7 +422,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!114 &324405038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +439,7 @@ MonoBehaviour:
   trailParticles: {fileID: 1857293614}
   speed: 10
   maxSpeed: 50
+  turningSpeed: 6
   stability: 0.05
 --- !u!212 &324405039
 SpriteRenderer:
@@ -516,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93e2745be4cf4bd28e285234701d4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 300
+  damage: 10
 --- !u!1 &423627395
 GameObject:
   m_ObjectHideFlags: 0

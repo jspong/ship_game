@@ -10,6 +10,7 @@ public class ShipInputs : MonoBehaviour {
 
     public float speed = 10f;
     public float maxSpeed = 50f;
+    public float turningSpeed = 15f;
     [Range(0f, 1f)] public float stability = 0.05f;
 
     private bool dead = false;
@@ -28,9 +29,11 @@ public class ShipInputs : MonoBehaviour {
         if (dead) {
             return;
         }
+        rb.inertia *= (1f - stability);
+        rb.angularVelocity *= (1f - stability);
         if (Input.GetKey(KeyCode.UpArrow)) {
-            rb.AddRelativeForce(Vector2.up * speed * (maxSpeed - rb.velocity.magnitude));
-            rb.angularVelocity *= 1f - stability;
+            rb.AddRelativeForce(Vector2.up * speed);
+
             if (!engineParticles.isEmitting) {
                 trailParticles.Play();
                 engineParticles.Play();
@@ -40,12 +43,6 @@ public class ShipInputs : MonoBehaviour {
             trailParticles.Stop();
         }
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
-        transform.Rotate(new Vector3(0, 0, -3f * h));
-    }
-
-    public IEnumerator Respawn() {
-        yield return new WaitForSeconds(3f);
-        dead = false;
-        GetComponent<SpriteRenderer>().enabled = true;
+        transform.Rotate(new Vector3(0, 0, -turningSpeed * h));
     }
 }

@@ -40,7 +40,6 @@ public class Stats : MonoBehaviour {
     }
 
     private void TakeDamage(float damage, Stats stats) {
-        Debug.Log(damage + " " + stats);
         if (shield > damage) {
             shield -= damage;
             damage = 0f;
@@ -58,6 +57,9 @@ public class Stats : MonoBehaviour {
     }
 
     void Explode() {
+        if (explosion == null) {
+            return;
+        }
         ParticleSystem ps = Instantiate(explosion, gameObject.transform.parent);
         ps.Play();
         ps.transform.position = gameObject.transform.position;
