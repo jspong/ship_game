@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114210587985728132}
   - component: {fileID: 114815862483411938}
   - component: {fileID: 114886642043137322}
+  - component: {fileID: 114752442636537686}
   - component: {fileID: 58155941464567244}
   m_Layer: 0
   m_Name: Asteroid
@@ -111,6 +112,26 @@ MonoBehaviour:
   maxSize: 10
   minSpeed: 3
   maxSpeed: 10
+--- !u!114 &114752442636537686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1174836583306324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c4376e7ff8f4b46aa6e125d86f0151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  value: 0
+  health: 200
+  shield: 0
+  healthDisplay: {fileID: 0}
+  shieldDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 0}
+  explosion: {fileID: 198721807466240548, guid: 0377d99b0cae7429d9d58e91baf2a7df,
+    type: 2}
 --- !u!114 &114815862483411938
 MonoBehaviour:
   m_ObjectHideFlags: 1
