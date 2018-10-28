@@ -31,6 +31,7 @@ public class ShipInputs : MonoBehaviour {
         }
         rb.inertia *= (1f - stability);
         rb.angularVelocity *= (1f - stability);
+
         if (Input.GetKey(KeyCode.UpArrow)) {
             rb.AddRelativeForce(Vector2.up * speed);
 
@@ -41,6 +42,9 @@ public class ShipInputs : MonoBehaviour {
         } else if (engineParticles.isEmitting) {
             engineParticles.Stop();
             trailParticles.Stop();
+        }
+        if (rb.velocity.magnitude > maxSpeed) {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
         }
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
         transform.Rotate(new Vector3(0, 0, -turningSpeed * h));
